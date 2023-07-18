@@ -1,0 +1,41 @@
+{
+    "name": "microoculus/laravel-repository-pattern",
+    "description": "Implement repository pattern with a single command",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Microoculus\\LaravelRepositoryPattern\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Microoculus\\LaravelRepositoryPattern\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --colors=always"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Microoculus\\LaravelRepositoryPattern\\Providers\\RepositoryPatterServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Microoculus",
+            "email": "microoculus@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+    
+}
