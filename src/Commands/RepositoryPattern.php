@@ -12,7 +12,7 @@ class RepositoryPattern extends Command
      *
      * @var string
      */
-    protected $signature = 'make:repo {name : Class (Singular), e.g User, Place, Car, Post} {--path=}';
+    protected $signature = 'make:repo {name : Class (Singular), e.g User, Place, Car, Post} {--P|path=} {--M|module=}';
 
     /**
      * The console command description.
@@ -39,18 +39,19 @@ class RepositoryPattern extends Command
     public function handle()
     {
         $name = $this->argument('name');
-
-       
-       
-        if( $this->option('path')) {
-            $path = $this->option('path');
-            RepositoryService::ImplementNow($name, $path);
-          }else{
-            RepositoryService::ImplementNow($name);
-          }
-
-       
-
+        if($this->option('path') && $this->option('module')){
+          $path = $this->option('path');
+          $module = $this->option('module');
+          RepositoryService::ImplementNow($name, $path, $module);
+        }else if(!$this->option('path') && $this->option('module')){
+          $module = $this->option('module');
+          RepositoryService::ImplementNow($name, null, $module);
+        }else if($this->option('path')){
+          $path = $this->option('path');
+          RepositoryService::ImplementNow($name, $path);
+        }else{
+          RepositoryService::ImplementNow($name);
+        }
         $this->info("Repository pattern implemented for model ". $name);
     }
 }

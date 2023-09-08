@@ -1,0 +1,15 @@
+<?php
+namespace {{nameSpace}};
+
+
+use {{repoPath}}\{{modelName}}Repository;
+
+class {{modelName}}Service
+{
+   private {{modelName}}Repository ${{serviceProperty}}Repository;
+
+    public function __construct()
+    {
+        $this->{{serviceProperty}}Repository = new {{modelName}}Repository();
+    }
+}

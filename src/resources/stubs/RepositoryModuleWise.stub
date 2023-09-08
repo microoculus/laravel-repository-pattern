@@ -1,0 +1,16 @@
+<?php
+namespace {{moduleNamespace}}\Repositories;
+
+
+use  Microoculus\LaravelRepositoryPattern\Repositories\BaseRepository;
+use {{moduleNamespace}}\Interfaces\{{modelName}}RepositoryInterface;
+use {{entitiesNamespace}}\{{modelName}};
+
+
+class {{modelName}}Repository extends BaseRepository implements {{modelName}}RepositoryInterface
+{
+    public function __construct({{modelName}} $model = new {{modelName}}())
+    {
+        parent::__construct($model);
+    }
+}
