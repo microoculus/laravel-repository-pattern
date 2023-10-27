@@ -12,4 +12,28 @@ class {{modelName}}Service
     {
         $this->{{serviceProperty}}Repository = new {{modelName}}Repository();
     }
+     public function getAll{{modelName}}($sortOrder = "ASC")
+    {
+        return  $this->{{serviceProperty}}Repository->getAll($sortOrder);
+    }
+
+    public function get{{modelName}}($id)
+    {
+        return  $this->{{serviceProperty}}Repository->find($id);
+    }
+
+    public function save{{modelName}}(${{modelName}}Details = [])
+    {
+        return $this->{{serviceProperty}}Repository->store(${{modelName}}Details);
+    }
+
+    public function update{{modelName}}($id, ${{modelName}}Details = [])
+    {
+        return $this->{{serviceProperty}}Repository->update($id, ${{modelName}}Details);
+    }
+
+    public function delete{{modelName}}($id)
+    {
+        return $this->{{serviceProperty}}Repository->delete($id);
+    }
 }
