@@ -207,6 +207,12 @@ class BaseRepository extends DbFacadesRepository
         $model->insert($details);
         return $model;
     }
+    public function getOrderBy($where = [], $orderByColumn = "id", $orderBySort = "ASC", $columns = ['*'] ){
+        if(!empty($where)) $this->queryWhereConditions($where);
+         $records =  $this->query->orderBy($orderByColumn,$orderBySort)->get($columns);
+         $this->cleanQuery();
+         return $records;
+    }
 
     /***
      * Chaining methods
@@ -216,6 +222,10 @@ class BaseRepository extends DbFacadesRepository
         return $this;
     }
 
+    public function whereCondition($where = []){
+        $this->queryWhereConditions($where);
+        return $this;
+    }
 
      /***
      * Closure methods
@@ -229,6 +239,8 @@ class BaseRepository extends DbFacadesRepository
         return $this;
         
     }
+
+    
 
     /***
      * Private methods methods
